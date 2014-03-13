@@ -1,30 +1,73 @@
+library BluppyFish;
+
 import 'dart:html';
 import 'dart:math';
+
+part 'class/board.dart';
+part 'class/bluppy.dart';
+
+
+void main() {
+  CanvasElement canvas = querySelector('#canvas');
+  Board board = new Board(canvas);
+}
+
+
+
+
+
+/*
+num numX = 100;
+num numY = 10;
+num numGX = 0;
+num numGY = 0;
+num numGravity = .1;
+CanvasElement canvas = document.querySelector('#canvas');
+CanvasRenderingContext2D context = canvas.getContext('2d');
+
+gameLoop(num delta){
+  numGY += numGravity; // Add the value of gravity to the current y location
+  numX += numGX; // Add the value of gx to the x location (move right)
+  numY += numGY; // Move the clip down to the new location
+  cleanGraphics();
+  drawGraphics(numX,numY);
+  
+  window.requestAnimationFrame(gameLoop);
+  
+}
+drawGraphics(num numX, num numY){
+  var radius = 20;
+  context.arc(numX, numY, radius, 0, 2 * PI, false);
+  context.fillStyle = 'lightgreen';
+  context.fill();
+}
+cleanGraphics(){
+  context.clearRect(0, 0, 384, 640);
+}
 onClickBoost(e){
   print('jump');
 }
 void main() {
-  document.onClick.listen(onClickBoost);
-  CanvasElement canvas = document.querySelector('#canvas');
-  CanvasRenderingContext2D context = canvas.getContext('2d');
-  var centerX = canvas.width / 2;
-  var centerY = canvas.height / 2;
-  var radius = 20;
+  document.onMouseDown.listen(onClickBoost);
+  gameLoop(1);
 
-  var c = context.arc(centerX, centerY, radius, 0, 2 * PI, false);
-  context.fillStyle = 'lightgreen';
-  context.fill();
-  context.lineWidth = 1;
   
-  /*
-  CanvasElement buffer = document.createElement('canevasBuffer');
-  buffer.width = canvas.width;
-  buffer.height = canvas.height;
-  CanvasRenderingContext2D bufferContext = buffer.getContext('2d');
-  bufferContext.fillStyle = 'red';
-  context.drawImage(buffer, 0, 0);
-  */
+ 
 }
+*/
+
+
+
+
+
+/*
+CanvasElement buffer = document.createElement('canevasBuffer');
+buffer.width = canvas.width;
+buffer.height = canvas.height;
+CanvasRenderingContext2D bufferContext = buffer.getContext('2d');
+bufferContext.fillStyle = 'red';
+context.drawImage(buffer, 0, 0);
+ */
 
 /*
   var gx:Number = 0; // pixel movement right
