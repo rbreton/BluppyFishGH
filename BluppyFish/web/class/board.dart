@@ -9,8 +9,6 @@ class Board {
 
   num width;
   num height;
-  num startBallX;
-  num startBallY;
   num numGX = 0;
   num numGY = 0;
   num numGravity = .1;
