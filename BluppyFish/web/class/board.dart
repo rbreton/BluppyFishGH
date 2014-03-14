@@ -56,7 +56,9 @@ class Board {
     }
     numGY += numGravity;
     if (bluppy.y + numGY > height) {
-      endGame();// ----------------  Comment faire pour bien arreter un jeu et le repartir??
+      endGame();// ----------------  Comment faire pour bien arreter un jeu et le repartir?? (Restart retry)
+                // ----------------  Comment faire une bonne detection de collision??
+                // ----------------  Comment créé un groupe de class?? List?? (ennemies plusieur enemie en mm temps)
       return false;
     }
     bluppy.x += numGX;
