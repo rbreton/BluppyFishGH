@@ -36,6 +36,7 @@ class Board {
   void border() {
     context.beginPath();
     context.rect(X, Y, width, height);
+    context.fillText('Canvas Examples', 150, 100); // ---- voir comment faire pour qu'il reste seulement un temps donnee
     context.closePath();
     context.stroke();
   }
