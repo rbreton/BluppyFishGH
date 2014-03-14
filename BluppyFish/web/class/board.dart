@@ -11,6 +11,7 @@ class Board {
   num height;
   num numGX = 0;
   num numGY = 0;
+  num numStartGY = 0;
   num numGravity = .1;
 
   Bluppy bluppy;
@@ -19,56 +20,50 @@ class Board {
     context = canvas.getContext("2d");
     width = canvas.width;
     height = canvas.height;
-    
     border();
-
     init();
   }
-
   void init() {
-    bluppy = new Bluppy(this, 100, 10);
+    bluppy = new Bluppy(this, 100, height / 2);
     window.animationFrame.then(gameLoop);
     document.onMouseDown.listen(onMouseDownBoost);
   }
-
   void gameLoop(num delta) {
     if(redraw()) {
       window.animationFrame.then(gameLoop);
     }
   }
-
   void border() {
     context.beginPath();
     context.rect(X, Y, width, height);
     context.closePath();
     context.stroke();
   }
-
   void clear() {
     context.clearRect(X, Y, width, height);
     border();
-  }
-  
+  }  
   void onMouseDownBoost(e){
     numGY = 0;
-    bluppy.y -= 30;
-  }
-  
+    numStartGY = bluppy.y;
+    numGravity = -.7;
+  } 
   bool redraw() {
     clear();
-
     bluppy.draw();
-    
+    if(bluppy.y <= numStartGY-10){
+      numGravity = .1;
+    }
     numGY += numGravity;
-
-    // The south side.
     if (bluppy.y + numGY > height) {
+      endGame();// ----------------  Comment faire pour bien arreter un jeu et le repartir??
       return false;
     }
-
     bluppy.x += numGX;
     bluppy.y += numGY;
     return true;
   }
-
+  bool endGame(){
+    
+  }
 }
