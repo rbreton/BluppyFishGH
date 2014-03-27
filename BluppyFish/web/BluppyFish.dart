@@ -7,6 +7,7 @@ part 'class/board.dart';
 part 'class/bluppy.dart';
 part 'class/pointage.dart';
 part 'class/bar.dart';
+part 'class/bouton.dart';
 
 
 void main() {
