@@ -18,6 +18,7 @@ class Board {
 
   Bluppy bluppy;
   Pointage pointage;
+  Bar bar;
   List lstBar = new List();
   
 
@@ -31,15 +32,20 @@ class Board {
   void init() {
     bluppy = new Bluppy(this, 100, height / 2);
     pointage = new Pointage(this, 300, 300, 0);
+    bar = new Bar(this, 375,300);
     window.animationFrame.then(gameLoop);
     document.onMouseDown.listen(onMouseDownBoost);
   }
   void gameLoop(num delta) {
-    if(etatGame && timeOutStart >= 100) {
-      redraw();
+    if(etatGame) {
+      //if(timeOutStart >= 100){
+        redraw();
+      //}
       window.animationFrame.then(gameLoop);
+      
     }
-    timeOutStart++;
+    //timeOutStart++;
+    //print(timeOutStart);
   }
   void border() {
     context.beginPath();
@@ -67,6 +73,7 @@ class Board {
     if (bluppy.y + numGY > height) {
       endGame();
     }
+    bar.draw();
     pointage.draw();
     pointage.point++;
     bluppy.x += numGX;
