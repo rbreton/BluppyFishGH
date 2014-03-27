@@ -6,6 +6,8 @@ class Board {
 
   CanvasElement canvas;
   CanvasRenderingContext2D context;
+  bool etatGame = true;
+  int timeOutStart = 0;
 
   num width;
   num height;
@@ -15,6 +17,9 @@ class Board {
   num numGravity = .1;
 
   Bluppy bluppy;
+  Pointage pointage;
+  List lstBar = new List();
+  
 
   Board(this.canvas) {
     context = canvas.getContext("2d");
@@ -25,13 +30,16 @@ class Board {
   }
   void init() {
     bluppy = new Bluppy(this, 100, height / 2);
+    pointage = new Pointage(this, 300, 300, 0);
     window.animationFrame.then(gameLoop);
     document.onMouseDown.listen(onMouseDownBoost);
   }
   void gameLoop(num delta) {
-    if(redraw()) {
+    if(etatGame && timeOutStart >= 100) {
+      redraw();
       window.animationFrame.then(gameLoop);
     }
+    timeOutStart++;
   }
   void border() {
     context.beginPath();
@@ -49,7 +57,7 @@ class Board {
     numStartGY = bluppy.y;
     numGravity = -.7;
   } 
-  bool redraw() {
+  void redraw() {
     clear();
     bluppy.draw();
     if(bluppy.y <= numStartGY-10){
@@ -57,16 +65,17 @@ class Board {
     }
     numGY += numGravity;
     if (bluppy.y + numGY > height) {
-      endGame();// ----------------  Comment faire pour bien arreter un jeu et le repartir?? (Restart retry)
-                // ----------------  Comment faire une bonne detection de collision??
-                // ----------------  Comment créé un groupe de class?? List?? (ennemies plusieur enemie en mm temps)
-      return false;
+      endGame();
     }
+    pointage.draw();
+    pointage.point++;
     bluppy.x += numGX;
     bluppy.y += numGY;
-    return true;
-  }
-  bool endGame(){
+    //Detection
     
+  }
+  void endGame(){
+    etatGame = false;
+    print('End');
   }
 }
