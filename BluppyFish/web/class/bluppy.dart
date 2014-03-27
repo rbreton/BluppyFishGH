@@ -12,6 +12,7 @@ class Bluppy {
   void draw() {
     board.context.beginPath();
     board.context.arc(x, y, 10, 0, PI*2, true);
+    board.context.fillStyle = "#0008db";
     board.context.closePath();
     board.context.fill();
   }
