@@ -19,8 +19,7 @@ class Board {
   Bluppy bluppy;
   Pointage pointage;
   Bouton bouton;
-  Bar bar;
-  List lstBar = new List();
+  List lstBars = new List(5);
   
 
   Board(this.canvas) {
@@ -34,7 +33,9 @@ class Board {
     bluppy = new Bluppy(this, 100, height / 2);
     pointage = new Pointage(this, 300, 300, 0);
     bouton = new Bouton(this, 200, 200);
-    bar = new Bar(this, 375);
+    for(int intI = 0; intI <= 4; intI++){
+      lstBars[intI] = new Bar(this, (600+(intI*200)));
+    }
     window.animationFrame.then(gameLoop);
     document.onMouseDown.listen(onMouseDownBoost);
   }
@@ -76,17 +77,31 @@ class Board {
     if (bluppy.y + numGY > height) {
       endGame();
     }
-    bar.draw();
+    for(int intJ = 0; intJ <= 4; intJ++){
+      lstBars[intJ].draw();
+      lstBars[intJ].x = lstBars[intJ].x-1;
+      if(lstBars[intJ].x <= -20){
+        lstBars[intJ] = new Bar(this, 600); 
+      }
+      if(lstBars[intJ].x <= 120 && !lstBars[intJ].etatCpt){
+        lstBars[intJ].etatCpt = true;
+        pointage.point++;
+      }
+    }
     pointage.draw();
-    bouton.draw();
-    pointage.point++;
     bluppy.x += numGX;
     bluppy.y += numGY;
     //Detection
     
   }
+  void restartGame(){
+    etatGame = true;
+    init();
+    
+  }
   void endGame(){
     etatGame = false;
+    bouton.draw();
     print('End');
   }
 }
