@@ -5,6 +5,7 @@ import 'dart:math';
 
 part 'class/board.dart';
 part 'class/bluppy.dart';
+part 'class/pointage.dart';
 
 
 void main() {
