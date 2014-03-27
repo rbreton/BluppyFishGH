@@ -34,7 +34,7 @@ class Board {
     bluppy = new Bluppy(this, 100, height / 2);
     pointage = new Pointage(this, 300, 300, 0);
     bouton = new Bouton(this, 200, 200);
-    bar = new Bar(this, 375,300);
+    bar = new Bar(this, 375);
     window.animationFrame.then(gameLoop);
     document.onMouseDown.listen(onMouseDownBoost);
   }
