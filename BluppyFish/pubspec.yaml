@@ -4,3 +4,5 @@ authors:
 - Claude-Jean Bienvenue
 - Remi Breton
 description: BluppyFish the game
+dependencies:
+  browser: any
