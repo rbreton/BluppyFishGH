@@ -16,6 +16,5 @@ class Pointage {
     board.context.fillStyle = "#fffd0a";
     board.context.fillText('Score : $point', x+4, y+19); 
     board.context.closePath();
-    board.context.stroke();
   }
 }

@@ -31,6 +31,12 @@ class Board {
     init();
   }
   void init(){
+    context.beginPath();
+    context.fillStyle = "#0008db";
+    context.font = 'italic 40pt Calibri';
+    context.fillText('Bluppy Fish', 140, 100);
+    context.font = '8pt Arial';
+    context.closePath();
     mouseUpListen = document.querySelector('#btnNav').onMouseDown.listen(onMouseUp);
   }
   void initGame() {
@@ -46,15 +52,13 @@ class Board {
   }
   void gameLoop(num delta) {
     if(etatGame) {
-        redraw();
+      redraw();
       window.animationFrame.then(gameLoop);
     }
   }
   void border() {
     context.beginPath();
     context.rect(X, Y, width, height);
-    context.fillStyle = "#0008db";
-    context.fillText('Bluppy Fish', 150, 100);
     context.closePath();
     context.stroke();
   }
@@ -114,7 +118,6 @@ class Board {
     numGY = 0;
     bouton.draw();
     mouseDownListen.cancel();
-    //bouton.addListeners();
     print('End');
   }
 }
