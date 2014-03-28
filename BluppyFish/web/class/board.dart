@@ -83,8 +83,8 @@ class Board {
       if(lstBars[intJ].x <= -30){
         lstBars[intJ] = new Bar(this, 600); 
       }
-      if(lstBars[intJ].x <= 110 && lstBars[intJ].x >= 100){
-        if(bluppy.y >= lstBars[intJ].Y1 && bluppy.y <= 600-lstBars[intJ].Y2){
+      if(lstBars[intJ].x <= 110 && lstBars[intJ].x >= 85){
+        if(bluppy.y >= lstBars[intJ].Y1 && bluppy.y <= 590-lstBars[intJ].Y2){
           if(!lstBars[intJ].etatCpt){
             lstBars[intJ].etatCpt = true;
             pointage.point++;
