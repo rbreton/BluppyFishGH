@@ -11,9 +11,21 @@ class Bluppy {
 
   void draw() {
     board.context.beginPath();
-    board.context.arc(x, y, 10, 0, PI*2, true);
     board.context.fillStyle = "#0008db";
+    //board.context.arc(x, y, 10, 0, PI*2, true);
+    board.context.fillRect(x, y, 10, 10);
     board.context.closePath();
     board.context.fill();
+    board.context.beginPath();
+    board.context.fillStyle = "#000000";
+    board.context.fillRect(x, y, 1, 1);
+    board.context.closePath();
+    board.context.fill();
+    board.context.beginPath();
+    board.context.fillStyle =  "#ffffff";
+    board.context.fillRect(x, y, 1, 1);
+    board.context.fillStyle =  "#000000";
+    board.context.fillText('X = $x : Y = ${y.floor()}', x+10, y+9);
+    board.context.closePath();
   }
 }

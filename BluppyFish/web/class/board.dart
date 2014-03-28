@@ -19,7 +19,7 @@ class Board {
   Bluppy bluppy;
   Pointage pointage;
   Bouton bouton;
-  List lstBars = new List(5);
+  List lstBars = new List(3);
   
 
   Board(this.canvas) {
@@ -31,9 +31,9 @@ class Board {
   }
   void init() {
     bluppy = new Bluppy(this, 100, height / 2);
-    pointage = new Pointage(this, 300, 300, 0);
+    pointage = new Pointage(this, 420, 20, 0);
     bouton = new Bouton(this, 200, 200);
-    for(int intI = 0; intI <= 4; intI++){
+    for(int intI = 0; intI < 3; intI++){
       lstBars[intI] = new Bar(this, (600+(intI*200)));
     }
     window.animationFrame.then(gameLoop);
@@ -62,7 +62,7 @@ class Board {
     context.clearRect(X, Y, width, height);
     border();
   }  
-  void onMouseDownBoost(e){
+  void onMouseDownBoost(MouseEvent e){
     numGY = 0;
     numStartGY = bluppy.y;
     numGravity = -.7;
@@ -77,15 +77,22 @@ class Board {
     if (bluppy.y + numGY > height) {
       endGame();
     }
-    for(int intJ = 0; intJ <= 4; intJ++){
+    for(int intJ = 0; intJ < lstBars.length; intJ++){
       lstBars[intJ].draw();
       lstBars[intJ].x = lstBars[intJ].x-1;
-      if(lstBars[intJ].x <= -20){
+      if(lstBars[intJ].x <= -30){
         lstBars[intJ] = new Bar(this, 600); 
       }
-      if(lstBars[intJ].x <= 120 && !lstBars[intJ].etatCpt){
-        lstBars[intJ].etatCpt = true;
-        pointage.point++;
+      if(lstBars[intJ].x <= 110 && lstBars[intJ].x >= 100){
+        if(bluppy.y >= lstBars[intJ].Y1 && bluppy.y <= 600-lstBars[intJ].Y2){
+          if(!lstBars[intJ].etatCpt){
+            lstBars[intJ].etatCpt = true;
+            pointage.point++;
+          }
+        }else{
+          print('hit');
+          endGame();
+        }
       }
     }
     pointage.draw();
@@ -94,7 +101,7 @@ class Board {
     //Detection
     
   }
-  void restartGame(){
+  void restartGame(MouseEvent e){
     etatGame = true;
     init();
     
@@ -102,6 +109,7 @@ class Board {
   void endGame(){
     etatGame = false;
     bouton.draw();
+    //bouton.on.mouseUp.add((MouseEvent event) => restartGame(event));
     print('End');
   }
 }
