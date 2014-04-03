@@ -33,9 +33,9 @@ class Board {
   }
   void init(){
     context.beginPath();
-    context.fillStyle = "#0008db";
-    context.font = 'italic 40pt Calibri';
-    context.fillText('Bluppy Fish', 140, 100);
+    context.fillStyle = "#63b8ff";
+    context.font = 'bold 40pt Papyrus';
+    context.fillText('Bluppy Fish', 110, 100);
     context.font = '8pt Arial';
     context.closePath();
     mouseUpListen = document.querySelector('#btnNav').onMouseDown.listen(onMouseUp);
