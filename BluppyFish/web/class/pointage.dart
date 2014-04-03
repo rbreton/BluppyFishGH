@@ -15,7 +15,7 @@ class Pointage {
     board.context.rect(x, y, 66, 30);
     board.context.font = 'bold 13pt Helvetica';
     board.context.fillStyle = "FF4500";
-    board.context.fillText('Score : $point', x+4, y+19); 
+    board.context.fillText('Score : $point', x-10, y+15); 
     board.context.closePath();
   }
 }

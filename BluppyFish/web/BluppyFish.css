@@ -18,11 +18,14 @@ section{
   visibility:hidden;
 }
 #canvas{
-  background:#AFEEEE;
+  background-image:url("aqua.jpg");
   margin:20px 0 0 0;
 }
 #btnNav{
   position:absolute;
   top:300px;
   left:230px;
+}
+#blup{
+  visibility:hidden;
 }
