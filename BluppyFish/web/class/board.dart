@@ -14,6 +14,8 @@ class Board {
   num numGY = 0;
   num numStartGY = 0;
   num numGravity = .1;
+  
+  AudioElement aEBlupSound = querySelector('#blup');
 
   Bluppy bluppy;
   Pointage pointage;
@@ -73,6 +75,7 @@ class Board {
     numGY = 0;
     numStartGY = bluppy.y;
     numGravity = -.7;
+    aEBlupSound.play();
   } 
   void redraw() {
     clear();
