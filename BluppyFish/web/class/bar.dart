@@ -29,18 +29,12 @@ class Bar {
       
   void draw() {
     board.context.beginPath();
-    board.context.fillStyle =  "#ff1493";
+    board.context.fillStyle =  "#2A6A13";
     board.context.fillRect(x, 0, 25, Y1);
     board.context.fillRect(x, 600-Y2, 25, Y2);
-    board.context.fillStyle =  "#00ff00";
-    //board.context.fillText('Ta BARRE ostie', x+5, Y1+14); 
-    board.context.closePath();
-    board.context.beginPath();
     board.context.fillStyle =  "#000000";
-    board.context.fillRect(x, 0, 1, Y1);
-    board.context.fillRect(x, 600-Y2, 1, Y2);
-    board.context.fillText('X = $x : Y = $Y1', x, Y1);
-    board.context.fillText('X = $x : Y = $Y2', x, 607-Y2);
+    board.context.strokeRect(x, 600-Y2, 25, Y2);
+    board.context.strokeRect(x, 0, 25, Y1);
     board.context.closePath();
   }
 }

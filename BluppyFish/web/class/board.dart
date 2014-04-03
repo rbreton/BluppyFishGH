@@ -17,7 +17,6 @@ class Board {
 
   Bluppy bluppy;
   Pointage pointage;
-  Bouton bouton;
   List lstBars = new List(3);
   
   var mouseUpListen;
@@ -43,7 +42,6 @@ class Board {
     document.querySelector('#btnNav').classes.add("hidden");
     bluppy = new Bluppy(this, 100, height / 2);
     pointage = new Pointage(this, 420, 20, 0);
-    bouton = new Bouton(this, 200, 200);
     for(int intI = 0; intI < 3; intI++){
       lstBars[intI] = new Bar(this, (600+(intI*200)));
     }
@@ -116,7 +114,6 @@ class Board {
     document.querySelector('#btnNav').innerHtml = 'Restart';
     document.querySelector('#btnNav').classes.remove("hidden");
     numGY = 0;
-    bouton.draw();
     mouseDownListen.cancel();
     print('End');
   }
