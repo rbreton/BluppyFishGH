@@ -93,7 +93,7 @@ class Board {
       if(lstBars[intJ].x <= -30){
         lstBars[intJ] = new Bar(this, 600); 
       }
-      if(lstBars[intJ].x <= 110 && lstBars[intJ].x >= 75){
+      if(lstBars[intJ].x <= 120 && lstBars[intJ].x >= 65){
         if(bluppy.y >= lstBars[intJ].Y1 && bluppy.y <= 590-lstBars[intJ].Y2){
           if(!lstBars[intJ].etatCpt && lstBars[intJ].x <= 77){
             lstBars[intJ].etatCpt = true;
@@ -118,6 +118,5 @@ class Board {
     document.querySelector('#btnNav').classes.remove("hidden");
     numGY = 0;
     mouseDownListen.cancel();
-    print('End');
   }
 }

@@ -20,7 +20,6 @@ class Bar {
   
   Bar(this.board, this.x) {
     R =  new Random().nextInt(lstBars.length);
-    print(R);
     num y;
     Y1 = lstBars[R]["y1"];
     Y2 = lstBars[R]["y2"];
