@@ -29,9 +29,11 @@ class Bar {
   void draw() {
     board.context.beginPath();
     board.context.fillStyle =  "ADFF2F";
+    
     board.context.fillRect(x, 0, 25, Y1);
     board.context.fillRect(x, 600-Y2, 25, Y2);
-    board.context.fillStyle =  "#000000";
+    board.context.strokeStyle = "000000";
+    /*board.context.fillStyle =  "#000000";*/
     board.context.strokeRect(x, 600-Y2, 25, Y2);
     board.context.strokeRect(x, 0, 25, Y1);
     board.context.closePath();

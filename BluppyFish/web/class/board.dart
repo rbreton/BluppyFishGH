@@ -23,7 +23,6 @@ class Board {
   
   var mouseUpListen;
   var mouseDownListen;
-  /* est-ce que j'ai bien fait d'utiliser un objet html pour le bouton restart?*/
   Board(this.canvas) {
     context = canvas.getContext("2d");
     width = canvas.width;
@@ -34,7 +33,7 @@ class Board {
   void init(){
     context.beginPath();
     context.fillStyle = "#63b8ff";
-    context.font = 'bold 45pt Papyrus';
+    context.font = 'bold 45pt Arial';
     context.fillText('Bluppy Fish', 100, 100);
     context.font = '8pt Arial';
     context.closePath();

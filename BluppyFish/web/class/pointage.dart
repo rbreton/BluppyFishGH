@@ -12,9 +12,10 @@ class Pointage {
 
   void draw() {
     board.context.beginPath();
-    board.context.rect(x, y, 66, 30);
-    board.context.font = 'bold 13pt Papyrus';
+    //board.context.rect(x, y, 66, 30);
     board.context.fillStyle = "FF4500";
+    board.context.font = 'bold 13pt arial';
+    
     board.context.fillText('Score : $point', x-20, y+15); 
     board.context.closePath();
   }
