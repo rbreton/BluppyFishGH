@@ -92,7 +92,7 @@ class Board {
       if(lstBars[intJ].x <= -30){
         lstBars[intJ] = new Bar(this, 600); 
       }
-      if(lstBars[intJ].x <= 120 && lstBars[intJ].x >= 60){
+      if(lstBars[intJ].x <= 120 && lstBars[intJ].x >= 74){
         if(bluppy.y >= lstBars[intJ].Y1 && bluppy.y <= 590-lstBars[intJ].Y2){
           if(!lstBars[intJ].etatCpt && lstBars[intJ].x <= 110){
             lstBars[intJ].etatCpt = true;
